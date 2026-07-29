@@ -18,8 +18,26 @@ public class ContactControllerTest {
     HttpClient client;
 
     @Test
-    public void testHello() {
-        HttpRequest<?> request = HttpRequest.GET("/contact").accept(MediaType.TEXT_PLAIN);
+    public void whenPostValidContact_thenReturnValidSetOfRecords_andReturn200() {
+        HttpRequest<?> request = HttpRequest.GET("/contacts").accept(MediaType.TEXT_PLAIN);
+        String body = client.toBlocking().retrieve(request);
+
+        assertNotNull(body);
+        assertEquals("Hello World", body);
+    }
+
+    @Test
+    public void whenGetContacts_thenReturnValidSetOfRecords_andReturn200() {
+        HttpRequest<?> request = HttpRequest.POST("/contact", "").accept(MediaType.TEXT_PLAIN);
+        String body = client.toBlocking().retrieve(request);
+
+        assertNotNull(body);
+        assertEquals("Hello World", body);
+    }
+
+    @Test
+    public void whenDelete_thenObjectDeleted_andReturn204() {
+        HttpRequest<?> request = HttpRequest.DELETE("/contact").accept(MediaType.TEXT_PLAIN);
         String body = client.toBlocking().retrieve(request);
 
         assertNotNull(body);

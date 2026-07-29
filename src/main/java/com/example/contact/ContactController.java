@@ -1,16 +1,26 @@
 package com.example.contact;
 
 import io.micronaut.http.MediaType;
-import io.micronaut.http.annotation.Controller;
-import io.micronaut.http.annotation.Get;
-import io.micronaut.http.annotation.Produces;
+import io.micronaut.http.annotation.*;
 
 
-@Controller("/contact")
+@Controller
 public class ContactController {
-    @Get
+    @Get(uri = "/contacts")
     @Produces(MediaType.TEXT_PLAIN)
-    public String index() {
+    public String getAll() {
+        return "Hello World";
+    }
+
+    @Post(uri = "/contact")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String postContact() {
+        return "Hello World";
+    }
+
+    @Delete(uri = "/contact")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String deleteContact() {
         return "Hello World";
     }
 }
