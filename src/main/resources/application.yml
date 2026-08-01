@@ -1,0 +1,5 @@
+micronaut.application.name: micro-bff
+
+
+#running services in container requires explicit local network port over localhost
+services.jwtIssuerUri: http://172.17.0.1:8020/realms/spreact
