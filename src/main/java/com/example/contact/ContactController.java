@@ -6,14 +6,21 @@ import io.micronaut.http.annotation.*;
 
 @Controller
 public class ContactController {
+
+    private final ContactService contactService;
+
+    public ContactController(ContactService contactService) {
+        this.contactService = contactService;
+    }
+
     @Get(uri = "/contacts")
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
     public String getAll() {
         return "Hello World";
     }
 
     @Post(uri = "/contact")
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
     public String postContact() {
         return "Hello World";
     }
