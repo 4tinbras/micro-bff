@@ -9,6 +9,18 @@ import jakarta.validation.constraints.NotBlank;
 @Table(name = "contact_details")
 public class ContactDetails {
 
+    public ContactDetails() {
+
+    }
+
+    public ContactDetails(Long uuid, String firstName, String lastName, String email, String phoneNo) {
+        this.uuid = uuid;
+        this. firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phoneNo = phoneNo;
+    }
+
     //TODO: change to a proper UUID
     @Id
     @GeneratedValue
