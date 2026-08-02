@@ -24,11 +24,9 @@ dependencies {
     compileOnly group: 'jakarta.servlet', name: 'jakarta.servlet-api', version: '6.1.0'
     implementation("io.micronaut.data:micronaut-data-hibernate-jpa:5.0.6")
     runtimeOnly("io.micronaut.sql:micronaut-jdbc-hikari")
-    runtimeOnly("org.flywaydb:flyway-database-postgresql")
     runtimeOnly("io.micronaut.data:micronaut-data-jdbc:5.0.6")
     runtimeOnly("org.postgresql:postgresql")
     compileOnly("jakarta.persistence:jakarta.persistence-api")
-    implementation("io.micronaut.liquibase:micronaut-liquibase")
 
     annotationProcessor("io.micronaut:micronaut-http-validation")
     annotationProcessor("io.micronaut.serde:micronaut-serde-processor")
