@@ -4,8 +4,10 @@ import io.micronaut.data.annotation.Repository;
 import io.micronaut.data.jpa.repository.JpaRepository;
 import io.micronaut.data.model.query.builder.sql.Dialect;
 
-@Repository
-public interface ContactDetailsRepository extends JpaRepository<ContactDetails, String> {
+import java.util.Optional;
 
-    ContactDetails findByEmail(String email);
+@Repository
+public interface ContactDetailsRepository extends JpaRepository<ContactDetails, Long> {
+
+    Optional<ContactDetails> findByEmail(String email);
 }

@@ -1,10 +1,12 @@
 package com.example.persistence;
 
+import io.micronaut.serde.annotation.Serdeable;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
+@Serdeable
 @Entity
 @Table(name = "contact_details")
 public class ContactDetails {

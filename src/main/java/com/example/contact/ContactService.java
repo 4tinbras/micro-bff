@@ -2,10 +2,12 @@ package com.example.contact;
 
 import com.example.persistence.ContactDetails;
 import com.example.persistence.ContactDetailsRepository;
+import jakarta.inject.Singleton;
 
 import java.util.List;
+import java.util.Optional;
 
-
+@Singleton
 public class ContactService {
 
     private final ContactDetailsRepository contactRepository;
@@ -24,11 +26,11 @@ public class ContactService {
         return returnedRecord;
     }
 
-    public void deleteById(String id) {
+    public void deleteById(Long id) {
         contactRepository.deleteById(id);
     }
 
-    public ContactDetails findByEmail(String email) {
+    public Optional<ContactDetails> findByEmail(String email) {
         return contactRepository.findByEmail(email);
     }
 
