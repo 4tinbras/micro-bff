@@ -14,13 +14,37 @@ repositories {
 }
 
 dependencies {
+    def jakartaVer='3.0.0'
+
+
+    runtimeOnly("io.micronaut:micronaut-management:5.1.0")
+
+    implementation group: 'jakarta.annotation', name: 'jakarta.annotation-api', version: jakartaVer
+    implementation group: 'jakarta.validation', name: 'jakarta.validation-api', version: jakartaVer
+    compileOnly group: 'jakarta.servlet', name: 'jakarta.servlet-api', version: '6.1.0'
+    implementation("io.micronaut.data:micronaut-data-hibernate-jpa:5.0.6")
+    implementation("io.micronaut.data:micronaut-data-tx-hibernate")
+    implementation("io.micronaut.sql:micronaut-jdbc-hikari")
+    runtimeOnly("io.micronaut.data:micronaut-data-jdbc:5.0.6")
+    runtimeOnly("org.postgresql:postgresql")
+    compileOnly("jakarta.persistence:jakarta.persistence-api")
+
+    implementation("tools.jackson.core:jackson-core:3.2.1")
+
     annotationProcessor("io.micronaut:micronaut-http-validation")
     annotationProcessor("io.micronaut.serde:micronaut-serde-processor")
     implementation("io.micronaut.serde:micronaut-serde-jackson")
     compileOnly("io.micronaut:micronaut-http-client")
     runtimeOnly("ch.qos.logback:logback-classic")
+    runtimeOnly("org.yaml:snakeyaml")
+
     testImplementation("io.micronaut:micronaut-http-client")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    testImplementation("io.micronaut.test:micronaut-test-junit5:5.0.1")
+    testImplementation("org.mockito:mockito-junit-jupiter:5.23.0")
+    testImplementation("org.mockito:mockito-core:5.23.0")
+    testImplementation("org.assertj:assertj-core:3.27.7")
+
 }
 
 

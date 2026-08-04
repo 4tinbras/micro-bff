@@ -1,0 +1,16 @@
+micronaut.application.name: micro-bff
+
+
+#running services in container requires explicit local network port over localhost
+services.jwtIssuerUri: http://172.17.0.1:8020/realms/spreact
+  
+  
+datasources.default.driver-class-name: org.postgresql.Driver
+datasources.default.db-type: postgres
+datasources.default.dialect: POSTGRES
+datasources.default.url: jdbc:postgresql://localhost:5432/spreact
+datasources.default.username: demo
+datasources.default.password: demo
+
+jpa.default.properties.hibernate.hbm2ddl.auto: update
+jpa.default.properties.hibernate.show_sql: true
