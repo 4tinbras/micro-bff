@@ -7,6 +7,7 @@ import io.micronaut.http.HttpStatus;
 import io.micronaut.http.MediaType;
 import io.micronaut.http.MutableHttpResponse;
 import io.micronaut.http.annotation.*;
+import jakarta.validation.Valid;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -30,7 +31,7 @@ public class ContactController {
 
     @Post(uri = "/contact")
     @Produces(MediaType.APPLICATION_JSON)
-    public MutableHttpResponse<ContactDetails> postContact(@Body ContactDetails contactDetails) throws URISyntaxException {
+    public MutableHttpResponse<ContactDetails> postContact(@Body @Valid ContactDetails contactDetails) throws URISyntaxException {
         final ContactDetails foundDetails = contactService.findByEmail(contactDetails.getEmail()).orElse(null);
         if (foundDetails != null) {
             if (!contactService.validateRecordToSave(contactDetails, foundDetails)) {
