@@ -41,7 +41,6 @@ public class ContactController {
         }
 
         final ContactDetails savedContact = contactService.save(contactDetails);
-//        log.debug("Updated contact with id: {}", savedContact.getUuid());
         return HttpResponse.created(new URI("/contacts/" + savedContact.getUuid().toString())).body(savedContact);
     }
 

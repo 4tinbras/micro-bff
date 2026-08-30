@@ -7,9 +7,9 @@ import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
-@Introspected // afaik redundant due to marking as @Entity
+@Introspected
 @Serdeable
-@Entity //transitively also @Introspected
+@Entity
 @Table(name = "contact_details")
 public class ContactDetails {
 
